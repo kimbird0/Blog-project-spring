@@ -19,12 +19,14 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//JDBC 드라이버의 경우, 컴파일 시점에 드라이버 클래스를 직접 참조하지 않기 때문에, runtimeOnly로 의존성을 추가하는 것이 적합
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	//Lombok은 소스 코드를 컴파일 할 때 어노테이션을 처리하고 필요한 코드를 생성하기 때문에, 컴파일 시간에만 필요
 	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
