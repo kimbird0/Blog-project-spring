@@ -34,12 +34,7 @@ public class User {
     @CreationTimestamp
     private Timestamp createDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private User user;
 
-    @OneToMany(mappedBy = "board")
-    private List<Reply> replies;
 
 
 }

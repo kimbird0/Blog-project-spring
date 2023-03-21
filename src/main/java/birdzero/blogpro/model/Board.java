@@ -6,8 +6,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -27,5 +29,15 @@ public class Board {
     private String content;
 
     @ColumnDefault("0")
+    private int count;
+
+    @CreationTimestamp
     private Timestamp createDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="userId")
+    private User user;
+
+    @OneToMany(mappedBy = "board")
+    private List<Reply> replies;
 }
