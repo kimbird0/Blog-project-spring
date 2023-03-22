@@ -1,4 +1,4 @@
-package birdzero.blogpro.controller;
+package birdzero.blogpro.controller.view;
 
 import birdzero.blogpro.dto.ResponseDto;
 import birdzero.blogpro.model.User;
@@ -10,28 +10,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
+//view 컨트롤러와 api 컨트롤러를 분리해야함
+//책임분리및 가독성, 테스트 용이
 @Controller
 @RequiredArgsConstructor
-public class UserController {
+public class UserViewController {
 
-    private final UserService userService;
 
-    @GetMapping("/user/joinForm")
+    @GetMapping("/user/signupForm")
     public String joinForm(){
-        return "user/joinForm";
+        return "/signupForm";
     }
 
     @GetMapping("/user/loginForm")
     public String loginForm(){
-        return "user/loginForm";
+        return "/loginForm";
     }
 
     //회원가입
-    @PostMapping("/user/join")
-    public ResponseDto<Integer> save(@RequestBody User user){
-        int result = userService.register(user);
-        return new ResponseDto<Integer>(HttpStatus.OK.value(),result);
-    }
 
 }
