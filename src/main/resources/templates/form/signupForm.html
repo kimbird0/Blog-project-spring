@@ -1,11 +1,11 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <meta charset="UTF-8">
 <head>
-    <div th:replace="/header.html :: header"></div>
+    <div th:replace="/layout/header.html :: header"></div>
     <link rel ="stylesheet" th:href="@{/signupLoginForm.css}">
 </head>
 <body>
-<div th:replace="/navi.html :: navi"></div>
+<div th:replace="/layout/navigator.html :: navigator"></div>
 <br/><br/>
 <div class="container">
     <form>
@@ -35,6 +35,6 @@
 </div>
 
 <script src="/user.js"></script>
-<footer th:replace="/footer.html :: footer"></footer>
+<footer th:replace="/layout/footer.html :: footer"></footer>
 </body>
 </html>
