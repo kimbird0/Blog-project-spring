@@ -34,6 +34,14 @@ public class User {
     @CreationTimestamp
     private Timestamp createDate;
 
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
+
+    public void setRoleAndEncPassword(RoleType role, String password){
+        this.role = role;
+        this.password = password;
+    }
+
 
 
 
