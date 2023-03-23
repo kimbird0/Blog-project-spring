@@ -14,7 +14,7 @@ let index ={
 
         $.ajax({
             type: "POST",
-            url: "/signup",
+            url: "/auth/signup",
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "json"

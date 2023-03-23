@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserViewController {
 
 
-    @GetMapping("/user/signupForm")
-    public String joinForm(){
-        return "/signupForm";
+    @GetMapping("/auth/signupForm")
+    public String signupForm(){
+        return "/form/signupForm";
     }
 
-    @GetMapping("/user/loginForm")
+    @GetMapping("/auth/loginForm")
     public String loginForm(){
-        return "/loginForm";
+        return "/form/loginForm";
     }
 
-    //회원가입
+
 
 }

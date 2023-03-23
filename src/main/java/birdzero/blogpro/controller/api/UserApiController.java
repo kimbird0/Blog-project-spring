@@ -17,7 +17,7 @@ public class UserApiController {
 
     private final UserService userService;
 
-    @PostMapping("/user/signup")
+    @PostMapping("/auth/signup")
     public ResponseDto<Integer> save(@RequestBody User user){
         int result = userService.register(user);
         return new ResponseDto<Integer>(HttpStatus.OK.value(),result);
