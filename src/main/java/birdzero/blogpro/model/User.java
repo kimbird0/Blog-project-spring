@@ -37,6 +37,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private RoleType role;
 
+    private String provider;
+    private String providerId;
     public void setRoleAndEncPassword(RoleType role, String password){
         this.role = role;
         this.password = password;
