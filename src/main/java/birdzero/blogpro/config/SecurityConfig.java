@@ -22,10 +22,6 @@ public class SecurityConfig {
     public void setPrincipalOauth2UserService(PrincipalOauth2UserService principalOauth2UserService) {
         this.principalOauth2UserService = principalOauth2UserService;
     }
-    @Bean
-    public BCryptPasswordEncoder encodePWD() {
-        return new BCryptPasswordEncoder();
-    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
