@@ -16,3 +16,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: #테스트할때 작성
+            client-secret:
+            scope:
+              - email
+              - profile
