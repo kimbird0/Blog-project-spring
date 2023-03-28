@@ -18,6 +18,10 @@ import java.util.List;
 @Entity
 public class Board {
 
+    public void setterCountAndUser(int count, User user) {
+        this.count = count;
+        this.user = user;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -40,4 +44,5 @@ public class Board {
 
     @OneToMany(mappedBy = "board")
     private List<Reply> replies;
+
 }

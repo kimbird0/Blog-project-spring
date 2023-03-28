@@ -1,13 +1,17 @@
-package birdzero.blogpro.controller;
+package birdzero.blogpro.controller.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BoardController {
+public class BoardViewController {
 
-    @GetMapping("/")
     public String index(){
         return "index";
+    }
+
+    @GetMapping("/form/saveForm")
+    public String saveForm(){
+        return "/form/saveForm";
     }
 }
