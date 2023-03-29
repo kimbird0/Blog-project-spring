@@ -22,8 +22,8 @@ spring:
       client:
         registration:
           google:
-            client-id: #테스트할때 작성
-            client-secret:
+            client-id: ${application.spring.security.google.client-id}
+            client-secret: ${application.spring.security.google.client-secret}
             scope:
               - email
               - profile

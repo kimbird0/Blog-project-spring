@@ -14,21 +14,18 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-    private PrincipalOauth2UserService principalOauth2UserService;
-    @Autowired
-    public void setPrincipalOauth2UserService(PrincipalOauth2UserService principalOauth2UserService) {
-        this.principalOauth2UserService = principalOauth2UserService;
-    }
+    private final PrincipalOauth2UserService principalOauth2UserService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .requestMatchers("/auth/**","/","/js/**","/css/**")
+                .requestMatchers("/auth/**","/","/js/**","/css/**","/img/**","/blog/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

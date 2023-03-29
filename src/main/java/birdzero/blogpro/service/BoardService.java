@@ -7,6 +7,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BoardService {
@@ -16,6 +18,10 @@ public class BoardService {
     public void register(Board board, User user){
         board.setterCountAndUser(0,user);
         boardRepository.save(board);
+    }
+
+    public List<Board> boardList(){
+        return boardRepository.findAll();
     }
 
 }
