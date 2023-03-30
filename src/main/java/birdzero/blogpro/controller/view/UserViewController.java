@@ -2,6 +2,7 @@ package birdzero.blogpro.controller.view;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 //view 컨트롤러와 api 컨트롤러를 분리해야함
@@ -10,6 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class UserViewController {
 
+
+    @GetMapping("/auth/login/error")
+    public String loginError(Model model){
+        model.addAttribute("loginErrorMsg", "username 또는 비밀번호를 확인해주세요");
+        return "/form/loginForm";
+    }
 
     @GetMapping("/auth/signupForm")
     public String signupForm(){

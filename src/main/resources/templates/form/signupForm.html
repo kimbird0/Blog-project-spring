@@ -3,12 +3,13 @@
 <head>
     <div th:replace="/layout/header.html :: header"></div>
     <link rel ="stylesheet" th:href="@{/css/signupLoginForm.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div th:replace="/layout/navigator.html :: navigator"></div>
 <br/><br/>
 <div class="container">
-    <form>
+    <form th:action="@{/auth/signup}" method="post">
         <div class="form-group">
             <label for="username">username:</label>
             <input type="text" class="form-control" placeholder="Enter username" id="username">

@@ -24,6 +24,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
 	implementation 'org.jetbrains:annotations:20.1.0'
 	//JDBC 드라이버의 경우, 컴파일 시점에 드라이버 클래스를 직접 참조하지 않기 때문에, runtimeOnly로 의존성을 추가하는 것이 적합
 	runtimeOnly 'com.mysql:mysql-connector-j'

@@ -12,13 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-    private final PasswordEncodingService passwordEncodingService;
+    private final BCryptPasswordEncoder encoder;
 
     //회원가입
     @Transactional
     public void register(User user) {
         String rawPassword = user.getPassword();
-        String encPassword = passwordEncodingService.encode(rawPassword);
+        String encPassword = encoder.encode(rawPassword);
         user.setRoleAndEncPassword(RoleType.USER, encPassword);
         userRepository.save(user);
     }

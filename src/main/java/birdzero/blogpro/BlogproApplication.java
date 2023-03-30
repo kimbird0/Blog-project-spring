@@ -12,6 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class BlogproApplication {
 
 
+	@Bean
+	public BCryptPasswordEncoder encodePWD(){
+		return new BCryptPasswordEncoder();
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(BlogproApplication.class, args);
 	}

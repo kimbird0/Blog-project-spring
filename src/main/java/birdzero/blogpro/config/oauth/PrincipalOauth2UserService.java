@@ -6,7 +6,6 @@ import birdzero.blogpro.model.User;
 import birdzero.blogpro.provider.GoogleUserInfo;
 import birdzero.blogpro.provider.OAuth2UserInfo;
 import birdzero.blogpro.repository.UserRepository;
-import birdzero.blogpro.service.PasswordEncodingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -19,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     private final UserRepository userRepository;
-    private final PasswordEncodingService passwordEncodingService;
+    private final BCryptPasswordEncoder encoder;
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
@@ -40,7 +39,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         String providerID = oAuth2UserInfo.getProviderId();
         String email = oAuth2UserInfo.getEmail();
         String username = provider +"_"+providerID;
-        String password = passwordEncodingService.encode("비밀번호");
+        String password = encoder.encode("비밀번호");
 
         User userEntity = userRepository.findByUsername(username);
         if (userEntity==null){

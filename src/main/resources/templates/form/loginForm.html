@@ -9,7 +9,7 @@
 <div th:replace="/layout/navigator.html :: navigator"></div>
 <br/><br/>
 <div class="container">
-  <form action="/auth/login" method="post">
+  <form th:action="@{/auth/login}" method="post">
     <div class="form-group">
       <label for="username">username:</label>
       <input type="text" class="form-control" placeholder="Enter username" name="username" id="username">
@@ -19,6 +19,7 @@
       <input type="password" class="form-control" placeholder="Enter password" name="password" id="password">
     </div>
     <br/>
+    <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}" style="color:red;"></p>
     <hr class="my-4">
     <div class="row">
       <div class="col">
