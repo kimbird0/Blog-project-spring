@@ -23,12 +23,16 @@ public class BoardService {
     public List<Board> boardList(){
         return boardRepository.findAll();
     }
-    
+
     public Board readDetail(int id){
         return boardRepository.findById(id)
                 .orElseThrow(()->{
                     return new IllegalArgumentException("게시물을 찾을 수 없습니다.");
                 });
+    }
+    @Transactional
+    public void delete(int id){
+        boardRepository.deleteById(id);
     }
 
 }

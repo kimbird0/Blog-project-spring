@@ -16,10 +16,13 @@
   <br/><br/>
   <div class = buttonDiv style="float:right;">
     <button class="btn btn-warning">수정</button>
-    <button class="btn btn-danger">삭제</button>
+    <button class="btn btn-danger" id="btn-delete">삭제</button>
     <button class="btn btn-secondary" onclick="history.back()">뒤로가기</button>
   </div>
+
+  <div style="display:none;" id="id" th:text="${board.id}"></div>
 </div>
+<script src="/js/board.js"></script>
 <footer th:replace="/layout/footer.html :: footer"></footer>
 </body>
 </html>

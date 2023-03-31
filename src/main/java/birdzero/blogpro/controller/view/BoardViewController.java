@@ -1,8 +1,10 @@
 package birdzero.blogpro.controller.view;
 
+import birdzero.blogpro.config.auth.PrincipalDetail;
 import birdzero.blogpro.model.Board;
 import birdzero.blogpro.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +29,11 @@ public class BoardViewController {
     public String saveForm(){
         return "/form/saveForm";
     }
+
     @GetMapping("/board/{id}")
-    public String findById(@PathVariable int id, Model model){
+    public String findById(@PathVariable int id, Model model, @AuthenticationPrincipal PrincipalDetail principal){
         Board board = boardService.readDetail(id);
+        model.addAttribute("principal", principal);
         model.addAttribute("board",board);
         return "/form/boardDetailForm";
     }
