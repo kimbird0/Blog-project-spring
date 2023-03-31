@@ -27,3 +27,7 @@ spring:
             scope:
               - email
               - profile
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
