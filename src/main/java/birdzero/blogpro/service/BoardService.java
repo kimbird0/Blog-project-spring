@@ -34,5 +34,12 @@ public class BoardService {
     public void delete(int id){
         boardRepository.deleteById(id);
     }
-
+    @Transactional
+    public void updateBoard(int id, Board requestBoard){
+        Board findBoard = boardRepository.findById(id)
+                .orElseThrow(()->{
+                    return new IllegalArgumentException("게시글 수정에 실패했습니다.");
+                });
+        findBoard.updateBoard(requestBoard.getTitle(),requestBoard.getContent());
+    }
 }

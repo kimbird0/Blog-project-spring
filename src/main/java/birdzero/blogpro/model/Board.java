@@ -45,4 +45,9 @@ public class Board {
     @OneToMany(mappedBy = "board")
     private List<Reply> replies;
 
+    public void updateBoard(String title, String content){
+        this.title =title;
+        this.content =content;
+    }
+
 }
