@@ -29,6 +29,9 @@ public class Board {
     @Column(nullable = false,length = 100)
     private String title;
 
+    @ColumnDefault("0")
+    private int viewCount;
+
     @Lob
     private String content;
 
@@ -48,6 +51,11 @@ public class Board {
     public void updateBoard(String title, String content){
         this.title =title;
         this.content =content;
+    }
+
+    public Board updateViewCount(int viewCount){
+        this.viewCount = viewCount+1;
+        return this;
     }
 
 }
