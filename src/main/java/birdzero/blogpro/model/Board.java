@@ -22,6 +22,9 @@ public class Board {
         this.count = count;
         this.user = user;
     }
+    public void setterUser(User user){
+        this.user = user;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

@@ -44,4 +44,7 @@ public class BoardViewController {
         model.addAttribute("board",board);
         return "/form/updateForm";
     }
+
+
+
 }

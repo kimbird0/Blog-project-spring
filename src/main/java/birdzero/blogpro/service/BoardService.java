@@ -17,6 +17,7 @@ public class BoardService {
     @Transactional
     public void register(Board board, User user){
         board.setterCountAndUser(0,user);
+        board.setterUser(user);
         boardRepository.save(board);
     }
 
@@ -24,11 +25,15 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
+    @Transactional
     public Board readDetail(int id){
-        return boardRepository.findById(id)
-                .orElseThrow(()->{
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> {
                     return new IllegalArgumentException("게시물을 찾을 수 없습니다.");
                 });
+        board.updateViewCount(board.getViewCount());
+        System.out.println("게시물 조회수 = " + board.getViewCount());
+        return board;
     }
     @Transactional
     public void delete(int id){
@@ -42,4 +47,6 @@ public class BoardService {
                 });
         findBoard.updateBoard(requestBoard.getTitle(),requestBoard.getContent());
     }
+
+
 }
