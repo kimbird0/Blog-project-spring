@@ -3,6 +3,7 @@ package birdzero.blogpro.service;
 import birdzero.blogpro.model.Board;
 import birdzero.blogpro.model.User;
 import birdzero.blogpro.repository.BoardRepository;
+import birdzero.blogpro.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardService {
     private final BoardRepository boardRepository;
+    private final UserRepository userRepository;
 
     @Transactional
-    public void register(Board board, User user){
+    public void register(Board board, Long id){
+        User user = userRepository.findById(id).get();
         board.setterCountAndUser(0,user);
         board.setterUser(user);
         boardRepository.save(board);

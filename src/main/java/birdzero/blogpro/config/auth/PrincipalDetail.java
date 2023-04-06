@@ -1,6 +1,6 @@
 package birdzero.blogpro.config.auth;
 
-import birdzero.blogpro.model.User;
+import birdzero.blogpro.dto.SessionUserDto;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,13 +13,13 @@ import java.util.Map;
 @Getter
 public class PrincipalDetail implements UserDetails, OAuth2User {
 
-    private User user;
+    private SessionUserDto user;
     private Map<String,Object> attributes;
-    public PrincipalDetail(User user){
+    public PrincipalDetail(SessionUserDto user){
         this.user = user;
     }
 
-    public PrincipalDetail(User user, Map<String, Object> attributes){
+    public PrincipalDetail(SessionUserDto user, Map<String, Object> attributes){
         this.user = user;
         this.attributes = attributes;
     }

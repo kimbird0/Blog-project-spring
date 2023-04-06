@@ -1,6 +1,7 @@
 package birdzero.blogpro.config.oauth;
 
 import birdzero.blogpro.config.auth.PrincipalDetail;
+import birdzero.blogpro.dto.SessionUserDto;
 import birdzero.blogpro.model.RoleType;
 import birdzero.blogpro.model.User;
 import birdzero.blogpro.provider.GoogleUserInfo;
@@ -56,6 +57,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         }else{
             System.out.println("로그인 기록이 있습니다. 자동 로그인됩니다.");
         }
-        return new PrincipalDetail(userEntity, oAuth2User.getAttributes());
+        SessionUserDto sessionUserDto = new SessionUserDto(userEntity);  //직렬 가능한 user DTO 생성.
+        return new PrincipalDetail(sessionUserDto, oAuth2User.getAttributes());
     }
 }
