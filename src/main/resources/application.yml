@@ -8,7 +8,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 
@@ -31,3 +31,8 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
