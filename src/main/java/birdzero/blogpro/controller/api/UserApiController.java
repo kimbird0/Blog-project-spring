@@ -17,9 +17,10 @@ public class UserApiController {
 
     private final UserService userService;
 
+    //회원가입
     @PostMapping("/auth/signup")
     public ResponseDto<Integer> save(@RequestBody User user){
-        userService.register(user); //회원가입 성공 시 1, 실패 시 -1 반환.
+        userService.register(user);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 

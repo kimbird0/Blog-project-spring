@@ -12,7 +12,7 @@ let index ={
             email: $("#email").val()
         };
 
-        $.ajax({
+        $.ajax({       //ajax 통신으로 3개의 데이터를 json형식으로 변환 후 insert 요청.
             type: "POST",
             url: "/auth/signup",
             data: JSON.stringify(data),

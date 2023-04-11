@@ -24,7 +24,7 @@ public class User {
     @Column(nullable = false, length = 50)
     private String username;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100) //해싱을 위해 더 길게 설정
     private String password;
 
     @Column(nullable = false, length = 50)
