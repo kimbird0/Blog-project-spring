@@ -14,11 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
+@Entity //db 테이블
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //기본키, db에서 자동으로 생성되어야함
     private Long id;
 
     @Column(nullable = false, length = 50)
@@ -32,9 +32,9 @@ public class User {
 
 
     @CreationTimestamp
-    private Timestamp createDate;
+    private Timestamp createDate;           //사용자가 생성된 시간
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)            //enum값이 db에 문자열로 저장돼야함
     private RoleType role;
 
     private String provider;
